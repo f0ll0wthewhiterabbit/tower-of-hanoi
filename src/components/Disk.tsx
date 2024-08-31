@@ -22,6 +22,7 @@ export const Disk: FC<DiskProps> = ({ data, isDisabled }) => {
       className={cn(
         'rounded-2xl',
         'h-[24px]',
+        'transition-colors',
         data.widthClass,
         isDisabled ? data.bgClass : data.bgClassActive,
         isDisabled ? 'cursor-default' : 'cursor-pointer',
