@@ -11,7 +11,7 @@ interface BoardProps {
 }
 
 export const Board: FC<BoardProps> = memo(function Board({ handleChange }) {
-  const [disks, setDisks] = useState<IDisk[]>(getInitialDisks())
+  const [disks, setDisks] = useState<IDisk[]>(getInitialDisks(8))
   const [disabledRods, setDisabledRods] = useState<TRodIndex[]>([])
   const rod0Disks = disks.filter(({ rodIndex }) => rodIndex === 0)
   const rod1Disks = disks.filter(({ rodIndex }) => rodIndex === 1)
