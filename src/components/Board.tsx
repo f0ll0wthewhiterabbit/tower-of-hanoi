@@ -1,12 +1,16 @@
 import { DndContext, DragEndEvent, DragStartEvent } from '@dnd-kit/core'
-import { useState } from 'react'
+import { FC, memo, useState } from 'react'
 
 import { Rod } from './Rod'
 import { getInitialDisks } from '@/helpers/disk.helper'
 import { IDisk } from '@/interfaces/disc.interface'
 import { TRodIndex } from '@/interfaces/rod-index.interface'
 
-export const Board = () => {
+interface BoardProps {
+  handleChange: () => void
+}
+
+export const Board: FC<BoardProps> = memo(function Board({ handleChange }) {
   const [disks, setDisks] = useState<IDisk[]>(getInitialDisks())
   const [disabledRods, setDisabledRods] = useState<TRodIndex[]>([])
   const rod0Disks = disks.filter(({ rodIndex }) => rodIndex === 0)
@@ -40,6 +44,7 @@ export const Board = () => {
     }
 
     setDisks(disks => disks.map(disk => (disk.size === diskSize ? { ...disk, rodIndex } : disk)))
+    handleChange()
   }
 
   function handleDragCancel() {
@@ -52,11 +57,11 @@ export const Board = () => {
       onDragStart={handleDragStart}
       onDragCancel={handleDragCancel}
     >
-      <div className='grid h-[288px] grid-cols-3 px-8'>
+      <main className='grid h-[288px] grid-cols-3'>
         <Rod index={0} isDisabled={disabledRods.includes(0)} discs={rod0Disks} />
         <Rod index={1} isDisabled={disabledRods.includes(1)} discs={rod1Disks} />
         <Rod index={2} isDisabled={disabledRods.includes(2)} discs={rod2Disks} />
-      </div>
+      </main>
     </DndContext>
   )
-}
+})
