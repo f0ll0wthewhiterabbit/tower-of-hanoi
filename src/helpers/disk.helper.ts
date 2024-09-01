@@ -1,10 +1,10 @@
 import { getRandomUniqueElementsFromArray } from './utils.helper'
 import { COLORS } from '@/constants.ts/tailwind.constants'
-import { IDisk, TDiskSize } from '@/interfaces/disc.interface'
+import { IDisk, TDiskSize, TInitialDisksNumber } from '@/interfaces/disc.interface'
 import { TRodIndex } from '@/interfaces/rod-index.interface'
 
-export const getInitialDisks = (size: 3 | 4 | 5 | 6 | 7 | 8): IDisk[] => {
-  const colors = getRandomUniqueElementsFromArray<string>(COLORS, size)
+export const getInitialDisks = (disksNumber: TInitialDisksNumber): IDisk[] => {
+  const colors = getRandomUniqueElementsFromArray<string>(COLORS, disksNumber)
 
   return colors
     .map((color, index) => {

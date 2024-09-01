@@ -1,18 +1,21 @@
 import { useDroppable } from '@dnd-kit/core'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { Disk } from './Disk'
 import { cn } from '@/helpers/utils.helper'
 import { IDisk } from '@/interfaces/disc.interface'
 import { TRodIndex } from '@/interfaces/rod-index.interface'
+import { useStore } from '@/store'
 
 interface RodProps {
-  discs: IDisk[]
   index: TRodIndex
   isDisabled: boolean
 }
 
-export const Rod: FC<RodProps> = ({ discs, index, isDisabled }) => {
+export const Rod: FC<RodProps> = ({ index, isDisabled }) => {
+  const allDisks = useStore(state => state.disks)
+  const getRodDisks = useStore(state => state.getRodDisks)
+  const [disks, setDisks] = useState<IDisk[]>([])
   const { isOver, setNodeRef } = useDroppable({
     id: `droppable-${index}`,
     data: { index },
@@ -20,9 +23,13 @@ export const Rod: FC<RodProps> = ({ discs, index, isDisabled }) => {
   })
   const bgClass = isOver ? 'bg-yellow-900' : 'bg-yellow-950'
 
+  useEffect(() => {
+    setDisks(getRodDisks(index))
+  }, [allDisks, index, getRodDisks])
+
   return (
     <div className='relative flex flex-col items-center justify-end py-[24px]' ref={setNodeRef}>
-      {discs.map((disk, index) => (
+      {disks.map((disk, index) => (
         <Disk data={disk} isDisabled={index !== 0} key={disk.size}></Disk>
       ))}
       <div

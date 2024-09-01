@@ -6,7 +6,6 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [daisyui],
   safelist: [
     {
       pattern: /w-(2|3|4|5|6|7|8|9)\/12/,
@@ -16,4 +15,8 @@ export default {
         /bg-(red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(400|800)/,
     },
   ],
+  plugins: [daisyui],
+  daisyui: {
+    themes: ['black'],
+  },
 }

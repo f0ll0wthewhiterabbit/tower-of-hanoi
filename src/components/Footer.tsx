@@ -1,10 +1,8 @@
-import { FC } from 'react'
+import { useStore } from '@/store'
 
-interface FooterProps {
-  steps: number
-}
+export const Footer = () => {
+  const steps = useStore(state => state.steps)
 
-export const Footer: FC<FooterProps> = ({ steps }) => {
   return (
     <footer className='flex h-[80px] items-center justify-end pb-[12px]'>
       <span className='text-2xl font-semibold'>Steps: {steps}</span>
