@@ -1,8 +1,9 @@
+import { COLORS } from '@/constants/tailwind.constants'
+
 import { IDisk, TDiskSize, TInitialDisksNumber } from '@/types/disc.types'
-import { TRodIndex } from '@/types/rod-index.types'
+import { TRodIndex } from '@/types/rod.types'
 
 import { getRandomUniqueElementsFromArray } from './utils.helpers'
-import { COLORS } from '@/constants.ts/tailwind.constants'
 
 export const getInitialDisks = (disksNumber: TInitialDisksNumber): IDisk[] => {
   const colors = getRandomUniqueElementsFromArray<string>(COLORS, disksNumber)

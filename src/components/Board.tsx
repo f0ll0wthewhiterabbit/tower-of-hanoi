@@ -2,7 +2,7 @@ import { DndContext, DragEndEvent, DragStartEvent } from '@dnd-kit/core'
 import { FC, useEffect, useState } from 'react'
 
 import { TDiskSize } from '@/types/disc.types'
-import { TRodIndex } from '@/types/rod-index.types'
+import { TRodIndex } from '@/types/rod.types'
 
 import { Rod } from './Rod'
 import { useStore } from '@/store'

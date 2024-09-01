@@ -2,7 +2,7 @@ import { useDroppable } from '@dnd-kit/core'
 import { FC, useEffect, useState } from 'react'
 
 import { IDisk } from '@/types/disc.types'
-import { TRodIndex } from '@/types/rod-index.types'
+import { TRodIndex } from '@/types/rod.types'
 
 import { Disk } from './Disk'
 import { cn } from '@/helpers/utils.helpers'
