@@ -61,7 +61,7 @@ export const Board: FC<BoardProps> = ({ onChange }) => {
       onDragStart={handleDragStart}
       onDragCancel={handleDragCancel}
     >
-      <main className='grid h-[288px] grid-cols-3'>
+      <main className='grid h-[280px] grid-cols-3'>
         <Rod index={0} isDisabled={disabledRods.includes(0)} />
         <Rod index={1} isDisabled={disabledRods.includes(1)} />
         <Rod index={2} isDisabled={disabledRods.includes(2)} />
