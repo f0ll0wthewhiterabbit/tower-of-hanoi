@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react'
 
-import { cn } from '@/helpers/utils.helper'
+import { cn } from '@/helpers/utils.helpers'
 
 interface ButtonProps {
   isIconOnly?: boolean

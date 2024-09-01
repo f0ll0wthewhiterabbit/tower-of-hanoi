@@ -1,8 +1,9 @@
 import { StateCreator } from 'zustand'
 
-import { getInitialDisks } from '@/helpers/disk.helper'
-import { IDisk, TDiskSize, TInitialDisksNumber } from '@/interfaces/disc.interface'
-import { TRodIndex } from '@/interfaces/rod-index.interface'
+import { IDisk, TDiskSize, TInitialDisksNumber } from '@/types/disc.types'
+import { TRodIndex } from '@/types/rod-index.types'
+
+import { getInitialDisks } from '@/helpers/disk.helpers'
 
 export interface IGameState {
   steps: number

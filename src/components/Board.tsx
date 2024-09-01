@@ -1,9 +1,10 @@
 import { DndContext, DragEndEvent, DragStartEvent } from '@dnd-kit/core'
 import { FC, useEffect, useState } from 'react'
 
+import { TDiskSize } from '@/types/disc.types'
+import { TRodIndex } from '@/types/rod-index.types'
+
 import { Rod } from './Rod'
-import { TDiskSize } from '@/interfaces/disc.interface'
-import { TRodIndex } from '@/interfaces/rod-index.interface'
 import { useStore } from '@/store'
 
 interface BoardProps {

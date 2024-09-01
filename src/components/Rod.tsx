@@ -1,10 +1,11 @@
 import { useDroppable } from '@dnd-kit/core'
 import { FC, useEffect, useState } from 'react'
 
+import { IDisk } from '@/types/disc.types'
+import { TRodIndex } from '@/types/rod-index.types'
+
 import { Disk } from './Disk'
-import { cn } from '@/helpers/utils.helper'
-import { IDisk } from '@/interfaces/disc.interface'
-import { TRodIndex } from '@/interfaces/rod-index.interface'
+import { cn } from '@/helpers/utils.helpers'
 import { useStore } from '@/store'
 
 interface RodProps {
