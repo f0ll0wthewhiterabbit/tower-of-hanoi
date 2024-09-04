@@ -6,7 +6,6 @@ import { useStore } from '@/store'
 
 export const ResetGame = () => {
   const resetGame = useStore(state => state.resetGame)
-  const setInitialDisks = useStore(state => state.setInitialDisks)
   const resetGameDialog = useRef<HTMLDialogElement | null>(null)
 
   function showModal(): void {
@@ -19,7 +18,6 @@ export const ResetGame = () => {
 
   function handleConfirmButtonClick(): void {
     resetGame()
-    setInitialDisks()
     closeModal()
   }
 

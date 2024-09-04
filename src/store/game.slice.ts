@@ -14,7 +14,7 @@ export interface IGameState {
 const initialState: IGameState = {
   steps: 0,
   disks: [],
-  disksNumber: 8,
+  disksNumber: 6,
 }
 
 export interface IGameGetters {
@@ -23,6 +23,7 @@ export interface IGameGetters {
 
 export interface IGameActions {
   incrementSteps: () => void
+  setDisksNumber: (disksNumber: TInitialDisksNumber) => void
   setInitialDisks: () => void
   moveDisk: (rodIndex: TRodIndex, diskSize: TDiskSize) => void
   resetGame: () => void
@@ -34,6 +35,7 @@ export const createGameSlice: StateCreator<TGameSlice, [], [], TGameSlice> = (se
   ...initialState,
   getRodDisks: (rodIndex: TRodIndex) => get().disks.filter(disk => disk.rodIndex === rodIndex),
   incrementSteps: () => set({ steps: get().steps + 1 }),
+  setDisksNumber: (disksNumber: TInitialDisksNumber) => set({ disksNumber }),
   setInitialDisks: () => set({ disks: getInitialDisks(get().disksNumber) }),
   moveDisk: (rodIndex: TRodIndex, diskSize: TDiskSize) =>
     set({

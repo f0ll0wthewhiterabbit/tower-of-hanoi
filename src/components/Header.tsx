@@ -1,9 +1,8 @@
 import { ResetGame } from './ResetGame'
+import { useStore } from '@/store'
 
 export const Header = () => {
-  return (
-    <header className='flex h-[80px] items-center pt-[12px]'>
-      <ResetGame />
-    </header>
-  )
+  const disks = useStore(state => state.disks)
+
+  return <header className='flex items-center'>{Boolean(disks.length) && <ResetGame />}</header>
 }

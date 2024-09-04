@@ -1,5 +1,5 @@
 import { DndContext, DragEndEvent, DragStartEvent } from '@dnd-kit/core'
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 
 import { TDiskSize } from '@/types/disc.types'
 import { TRodIndex } from '@/types/rod.types'
@@ -12,14 +12,9 @@ interface BoardProps {
 }
 
 export const Board: FC<BoardProps> = ({ onChange }) => {
-  const setInitialDisks = useStore(state => state.setInitialDisks)
   const moveDisk = useStore(state => state.moveDisk)
   const getRodDisks = useStore(state => state.getRodDisks)
   const [disabledRods, setDisabledRods] = useState<TRodIndex[]>([])
-
-  useEffect(() => {
-    setInitialDisks()
-  }, [setInitialDisks])
 
   function handleDragStart(event: DragStartEvent) {
     const { rodIndex, size } = event.active?.data?.current || {}
