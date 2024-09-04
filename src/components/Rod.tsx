@@ -22,7 +22,7 @@ export const Rod: FC<RodProps> = ({ index, isDisabled }) => {
     data: { index },
     disabled: isDisabled,
   })
-  const bgClass = isOver ? 'bg-neutral-600' : 'bg-neutral-800'
+  const bgClass = isOver ? 'bg-gray-600' : 'bg-gray-800'
 
   useEffect(() => {
     setDisks(getRodDisks(index))

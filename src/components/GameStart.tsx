@@ -20,7 +20,7 @@ export const GameStart = () => {
         <h2 className='mb-6 text-2xl'>Select disk count</h2>
         <div className='relative'>
           <FishSymbol
-            className='absolute -left-4 top-1/2 -translate-x-full translate-y-[calc(-50%-4px)] text-[#262937]'
+            className='absolute -left-4 top-1/2 -translate-x-full translate-y-[calc(-50%-4px)] text-gray-800'
             size={48}
           />
           <input
@@ -33,7 +33,7 @@ export const GameStart = () => {
             onChange={handleDisksNumberChange}
           />
           <Fish
-            className='absolute -right-4 top-1/2 translate-x-full translate-y-[calc(-50%-4px)] text-[#262937]'
+            className='absolute -right-4 top-1/2 translate-x-full translate-y-[calc(-50%-4px)] text-gray-800'
             size={48}
           />
         </div>
