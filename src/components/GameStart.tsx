@@ -17,7 +17,7 @@ export const GameStart = () => {
   return (
     <main className='flex flex-col items-center justify-center gap-16'>
       <div className='w-96 text-center'>
-        <h2 className='mb-6 text-2xl'>Choose disk size</h2>
+        <h2 className='mb-6 text-2xl'>Select disk count</h2>
         <div className='relative'>
           <FishSymbol
             className='absolute -left-4 top-1/2 -translate-x-full translate-y-[calc(-50%-4px)] text-[#262937]'
