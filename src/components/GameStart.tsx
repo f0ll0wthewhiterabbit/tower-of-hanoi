@@ -3,6 +3,7 @@ import { ChangeEvent } from 'react'
 
 import { TInitialDisksNumber } from '@/types/disc.types'
 
+import { cn } from '@/helpers/utils.helpers'
 import { useStore } from '@/store'
 
 export const GameStart = () => {
@@ -14,13 +15,54 @@ export const GameStart = () => {
     setDisksNumber(Number(event.target.value) as TInitialDisksNumber)
   }
 
+  function getProFishColor() {
+    if (disksNumber === 8) {
+      return 'text-indigo-600'
+    }
+
+    if (disksNumber === 7) {
+      return 'text-indigo-800'
+    }
+
+    if (disksNumber === 6) {
+      return 'text-indigo-950'
+    }
+
+    return 'text-gray-800'
+  }
+
+  function getNewbieFishColor() {
+    if (disksNumber === 3) {
+      return 'text-sky-600'
+    }
+
+    if (disksNumber === 4) {
+      return 'text-sky-800'
+    }
+
+    if (disksNumber === 5) {
+      return 'text-sky-950'
+    }
+
+    return 'text-gray-800'
+  }
+
   return (
     <main className='flex flex-col items-center justify-center gap-16'>
       <div className='w-96 text-center'>
         <h2 className='mb-6 text-2xl'>Select disk count</h2>
         <div className='relative'>
           <FishSymbol
-            className='absolute -left-4 top-1/2 -translate-x-full translate-y-[calc(-50%-4px)] text-gray-800'
+            className={cn(
+              'absolute',
+              '-left-4',
+              'top-1/2',
+              '-translate-x-full',
+              'translate-y-[calc(-50%-4px)]',
+              'transition-colors',
+              'duration-1000',
+              getNewbieFishColor(),
+            )}
             size={48}
           />
           <input
@@ -33,7 +75,16 @@ export const GameStart = () => {
             onChange={handleDisksNumberChange}
           />
           <Fish
-            className='absolute -right-4 top-1/2 translate-x-full translate-y-[calc(-50%-4px)] text-gray-800'
+            className={cn(
+              'absolute',
+              '-right-4',
+              'top-1/2',
+              'translate-x-full',
+              'translate-y-[calc(-50%-4px)]',
+              'transition-colors',
+              'duration-1000',
+              getProFishColor(),
+            )}
             size={48}
           />
         </div>
