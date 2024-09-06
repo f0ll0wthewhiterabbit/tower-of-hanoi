@@ -28,16 +28,17 @@ export const ResetGame = () => {
       </Button>
       <dialog ref={resetGameDialog} className='modal'>
         <div className='modal-box rounded-lg bg-[#141519]'>
-          <p className='text-lg'>Are you sure you want to reset the game?</p>
-          <div className='modal-action'>
+          <h3 className='mb-[16px] text-lg font-bold'>Restart game</h3>
+          <p className='text-lg'>Are you sure you want to restart? All progress will be lost.</p>
+          <div className='modal-action mt-[40px]'>
             <Button onClick={closeModal}>Cancel</Button>
             <Button isWarning onClick={handleConfirmButtonClick}>
-              Confirm
+              Restart
             </Button>
           </div>
         </div>
         <form method='dialog' className='modal-backdrop'>
-          <button>close</button>
+          <button>Cancel</button>
         </form>
       </dialog>
     </>
