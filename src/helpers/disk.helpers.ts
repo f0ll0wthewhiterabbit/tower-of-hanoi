@@ -18,6 +18,7 @@ export const getInitialDisks = (disksNumber: TInitialDisksNumber): IDisk[] => {
         widthClass: `w-${size + 1}/12`,
         bgClass: `bg-${color}-800`,
         bgClassActive: `bg-${color}-400`,
+        isDragging: false,
       }
     })
     .reverse()

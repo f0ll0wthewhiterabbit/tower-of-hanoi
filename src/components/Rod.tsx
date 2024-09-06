@@ -16,22 +16,34 @@ interface RodProps {
 export const Rod: FC<RodProps> = ({ index, isDisabled }) => {
   const allDisks = useStore(state => state.disks)
   const getRodDisks = useStore(state => state.getRodDisks)
+  const isGameFinished = useStore(state => state.isGameFinished())
   const [disks, setDisks] = useState<IDisk[]>([])
   const { isOver, setNodeRef } = useDroppable({
     id: `droppable-${index}`,
     data: { index },
     disabled: isDisabled,
   })
-  const bgClass = isOver ? 'bg-gray-600' : 'bg-gray-800'
+  const bgClass = isOver || isGameFinished ? 'bg-gray-600' : 'bg-gray-800'
 
   useEffect(() => {
     setDisks(getRodDisks(index))
   }, [allDisks, index, getRodDisks])
 
   return (
-    <div className='relative flex flex-col items-center justify-end py-[24px]' ref={setNodeRef}>
+    <div
+      className={cn(
+        'relative',
+        'flex',
+        'flex-col',
+        'items-center',
+        'justify-end',
+        'py-[24px]',
+        isGameFinished && 'animate-pulse',
+      )}
+      ref={setNodeRef}
+    >
       {disks.map((disk, index) => (
-        <Disk data={disk} isDisabled={index !== 0} key={disk.size}></Disk>
+        <Disk data={disk} isDisabled={index !== 0} isOver={isOver} key={disk.size}></Disk>
       ))}
       <div
         className={cn(

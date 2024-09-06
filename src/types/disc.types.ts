@@ -10,4 +10,5 @@ export interface IDisk {
   widthClass: string
   bgClass: string
   bgClassActive: string
+  isDragging: boolean
 }
