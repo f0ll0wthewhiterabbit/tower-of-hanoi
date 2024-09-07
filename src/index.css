@@ -9,7 +9,7 @@
   font-size: 16px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #1d1d1d;
+  background-color: #0f172a;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   scrollbar-gutter: unset !important;
@@ -19,8 +19,6 @@
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
@@ -29,8 +27,8 @@ body {
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  flex: 1;
-  display: flex;
-  place-items: center;
-  padding: 2rem;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr max-content;
+  align-items: center;
 }

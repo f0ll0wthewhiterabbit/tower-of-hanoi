@@ -14,7 +14,7 @@ interface BoardProps {
   onChange: () => void
 }
 
-export const Board: FC<BoardProps> = ({ onChange }) => {
+export const GameBoard: FC<BoardProps> = ({ onChange }) => {
   const [isFinishGameModalOpened, setIsFinishGameModalOpened] = useState(false)
   const steps = useStore(state => state.steps)
   const isGameFinished = useStore(state => state.isGameFinished())
@@ -79,11 +79,11 @@ export const Board: FC<BoardProps> = ({ onChange }) => {
         onDragStart={handleDragStart}
         onDragCancel={handleDragCancel}
       >
-        <main className='grid h-[280px] grid-cols-3'>
+        <div className='grid h-[280px] grid-cols-3'>
           <Rod index={0} isDisabled={disabledRods.includes(0)} />
           <Rod index={1} isDisabled={disabledRods.includes(1)} />
           <Rod index={2} isDisabled={disabledRods.includes(2)} />
-        </main>
+        </div>
       </DndContext>
       <Modal
         isOpened={isFinishGameModalOpened}

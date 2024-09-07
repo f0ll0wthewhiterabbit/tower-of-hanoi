@@ -5,7 +5,7 @@ import { Modal } from './Modal'
 import { cn } from '@/helpers/utils.helpers'
 import { useStore } from '@/store'
 
-export const ResetGame = () => {
+export const GameReset = () => {
   const [isModalOpened, setIsModalOpened] = useState(false)
   const resetGame = useStore(state => state.resetGame)
 
