@@ -3,6 +3,7 @@ import { GameBoard } from './GameBoard'
 import { GameFooter } from './GameFooter'
 import { GameHeader } from './GameHeader'
 import { GameStart } from './GameStart'
+import { Header } from './Header'
 import { useStore } from '@/store'
 
 export const App = () => {
@@ -11,7 +12,8 @@ export const App = () => {
 
   return (
     <>
-      <main className='p-8'>
+      <Header />
+      <main className='w-full max-w-screen-xl justify-self-center p-10'>
         <div className='grid h-[464px] grid-rows-[80px,1fr,80px] overflow-hidden rounded-xl bg-gray-950 px-8 py-[12px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]'>
           <GameHeader />
           {disks.length ? <GameBoard onChange={incrementSteps} /> : <GameStart />}

@@ -25,10 +25,9 @@ body {
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr max-content;
+  grid-template-rows: max-content 1fr max-content;
   align-items: center;
 }
