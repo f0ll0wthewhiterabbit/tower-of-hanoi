@@ -10,7 +10,7 @@ export const getInitialDisks = (disksNumber: TInitialDisksNumber): IDisk[] => {
 
   return colors
     .map((color, index) => {
-      const size = (8 - index) as TDiskSize
+      const size = (disksNumber - index) as TDiskSize
 
       return {
         size,
