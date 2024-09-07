@@ -29,7 +29,7 @@ export const GameBoard: FC<BoardProps> = ({ onChange }) => {
 
       setTimeout(() => {
         setIsFinishGameModalOpened(true)
-      }, 2000)
+      }, 2750)
     }
   }, [isGameFinished])
 
