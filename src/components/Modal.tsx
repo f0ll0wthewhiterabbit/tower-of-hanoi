@@ -1,6 +1,6 @@
 import { FC, KeyboardEvent, PropsWithChildren, useEffect, useRef } from 'react'
 
-import { Button } from './Button'
+import { cn } from '@/helpers/utils.helpers'
 
 interface ModalProps {
   isOpened: boolean
@@ -8,6 +8,7 @@ interface ModalProps {
   text: string
   confirmButtonTitle: string
   isCloseDisabled?: boolean
+  isWarning?: boolean
   onConfirm: () => void
   onCancel?: () => void
 }
@@ -19,6 +20,7 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({
   text,
   confirmButtonTitle,
   isCloseDisabled,
+  isWarning,
   onConfirm,
   onCancel,
 }) => {
@@ -45,10 +47,17 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({
         <p className='text-lg'>{text}</p>
         {children}
         <div className='modal-action mt-[40px]'>
-          {onCancel && <Button onClick={onCancel}>Cancel</Button>}
-          <Button isWarning onClick={onConfirm}>
+          {onCancel && (
+            <button className={cn('btn', 'btn-sm', 'rounded-md', 'btn-outline')} onClick={onCancel}>
+              Cancel
+            </button>
+          )}
+          <button
+            className={cn('btn', 'btn-sm', 'rounded-md', isWarning ? 'btn-warning' : 'btn-primary')}
+            onClick={onConfirm}
+          >
             {confirmButtonTitle}
-          </Button>
+          </button>
         </div>
       </div>
       {!isCloseDisabled && (

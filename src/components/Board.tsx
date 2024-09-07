@@ -90,7 +90,7 @@ export const Board: FC<BoardProps> = ({ onChange }) => {
         title='Congratulations!'
         text={`You've successfully completed the Tower of Hanoi puzzle in ${steps} steps!`}
         confirmButtonTitle='Play Again'
-        isCloseDisabled={true}
+        isCloseDisabled
         onConfirm={handleFinishGameModalConfirm}
       >
         <p className='mt-[16px] text-lg'>Great job! Ready to challenge yourself again?</p>

@@ -1,8 +1,8 @@
 import { Undo2 } from 'lucide-react'
 import { useState } from 'react'
 
-import { Button } from './Button'
 import { Modal } from './Modal'
+import { cn } from '@/helpers/utils.helpers'
 import { useStore } from '@/store'
 
 export const ResetGame = () => {
@@ -24,14 +24,18 @@ export const ResetGame = () => {
 
   return (
     <>
-      <Button isIconOnly onClick={showModal}>
+      <button
+        className={cn('btn', 'btn-sm', 'rounded-md', 'btn-outline', 'btn-square')}
+        onClick={showModal}
+      >
         <Undo2 size={18} />
-      </Button>
+      </button>
       <Modal
         isOpened={isModalOpened}
         title='Restart game'
         text='Are you sure you want to restart? All progress will be lost.'
         confirmButtonTitle='Restart'
+        isWarning
         onCancel={closeModal}
         onConfirm={handleModalConfirm}
       />
