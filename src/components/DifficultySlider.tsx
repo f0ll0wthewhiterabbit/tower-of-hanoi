@@ -3,12 +3,14 @@ import { ChangeEvent } from 'react'
 
 import { TInitialDisksNumber } from '@/types/disc.types'
 
+import { getMinimumNumberOfSteps } from '@/helpers/steps.helper'
 import { cn } from '@/helpers/utils.helpers'
 import { useStore } from '@/store'
 
 export const DifficultySlider = () => {
   const disksNumber = useStore(state => state.disksNumber)
   const setDisksNumber = useStore(state => state.setDisksNumber)
+  const minimumNumberOfSteps = getMinimumNumberOfSteps(disksNumber)
 
   function handleDisksNumberChange(event: ChangeEvent<HTMLInputElement>) {
     setDisksNumber(Number(event.target.value) as TInitialDisksNumber)
@@ -94,6 +96,7 @@ export const DifficultySlider = () => {
         <span>7</span>
         <span>8</span>
       </div>
+      <p className='mt-6 text-base'>Minimum moves to solve: {minimumNumberOfSteps}</p>
     </div>
   )
 }
