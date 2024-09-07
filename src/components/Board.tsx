@@ -1,6 +1,8 @@
 import { DndContext, DragEndEvent, DragStartEvent } from '@dnd-kit/core'
 import { FC, useEffect, useState } from 'react'
 
+import { LOCAL_STORAGE_KEYS } from '@/constants/storage.constants'
+
 import { TDiskSize } from '@/types/disc.types'
 import { TRodIndex } from '@/types/rod.types'
 
@@ -23,6 +25,8 @@ export const Board: FC<BoardProps> = ({ onChange }) => {
 
   useEffect(() => {
     if (isGameFinished) {
+      localStorage.removeItem(LOCAL_STORAGE_KEYS.GAME_STORAGE)
+
       setTimeout(() => {
         setIsFinishGameModalOpened(true)
       }, 2000)

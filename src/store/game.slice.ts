@@ -1,4 +1,7 @@
 import { StateCreator } from 'zustand'
+import { persist } from 'zustand/middleware'
+
+import { LOCAL_STORAGE_KEYS } from '@/constants/storage.constants'
 
 import { IDisk, TDiskSize, TInitialDisksNumber } from '@/types/disc.types'
 import { TRodIndex } from '@/types/rod.types'
@@ -32,16 +35,22 @@ export interface IGameActions {
 
 export type TGameSlice = IGameState & IGameGetters & IGameActions
 
-export const createGameSlice: StateCreator<TGameSlice, [], [], TGameSlice> = (set, get) => ({
-  ...initialState,
-  getRodDisks: (rodIndex: TRodIndex) => get().disks.filter(disk => disk.rodIndex === rodIndex),
-  isGameFinished: () => get().disks.length === get().getRodDisks(2).length,
-  incrementSteps: () => set({ steps: get().steps + 1 }),
-  setDisksNumber: (disksNumber: TInitialDisksNumber) => set({ disksNumber }),
-  setInitialDisks: () => set({ disks: getInitialDisks(get().disksNumber) }),
-  moveDisk: (rodIndex: TRodIndex, diskSize: TDiskSize) =>
-    set({
-      disks: get().disks.map(disk => (disk.size === diskSize ? { ...disk, rodIndex } : disk)),
+export const createGameSlice: StateCreator<TGameSlice, [], [['zustand/persist', TGameSlice]]> =
+  persist(
+    (set, get) => ({
+      ...initialState,
+      getRodDisks: (rodIndex: TRodIndex) => get().disks.filter(disk => disk.rodIndex === rodIndex),
+      isGameFinished: () => get().disks.length === get().getRodDisks(2).length,
+      incrementSteps: () => set({ steps: get().steps + 1 }),
+      setDisksNumber: (disksNumber: TInitialDisksNumber) => set({ disksNumber }),
+      setInitialDisks: () => set({ disks: getInitialDisks(get().disksNumber) }),
+      moveDisk: (rodIndex: TRodIndex, diskSize: TDiskSize) =>
+        set({
+          disks: get().disks.map(disk => (disk.size === diskSize ? { ...disk, rodIndex } : disk)),
+        }),
+      resetGame: () => set(initialState),
     }),
-  resetGame: () => set(initialState),
-})
+    {
+      name: LOCAL_STORAGE_KEYS.GAME_STORAGE,
+    },
+  )
