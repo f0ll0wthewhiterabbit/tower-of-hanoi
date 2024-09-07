@@ -1,4 +1,4 @@
-import { Undo2 } from 'lucide-react'
+import { ArrowLeftToLine } from 'lucide-react'
 import { useState } from 'react'
 
 import { Modal } from './Modal'
@@ -24,11 +24,8 @@ export const GameReset = () => {
 
   return (
     <>
-      <button
-        className={cn('btn', 'btn-sm', 'rounded-md', 'btn-outline', 'btn-square')}
-        onClick={showModal}
-      >
-        <Undo2 size={18} />
+      <button className={cn('btn', 'btn-ghost', 'rounded-md', 'btn-square')} onClick={showModal}>
+        <ArrowLeftToLine size={28} />
       </button>
       <Modal
         isOpened={isModalOpened}
