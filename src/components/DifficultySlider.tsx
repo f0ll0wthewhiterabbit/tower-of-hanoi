@@ -60,7 +60,7 @@ export const DifficultySlider = () => {
             '-translate-x-full',
             'translate-y-[calc(-50%-4px)]',
             'transition-colors',
-            'duration-1000',
+            'duration-500',
             getNewbieFishColor(),
           )}
           size={48}
@@ -82,7 +82,7 @@ export const DifficultySlider = () => {
             'translate-x-full',
             'translate-y-[calc(-50%-4px)]',
             'transition-colors',
-            'duration-1000',
+            'duration-500',
             getProFishColor(),
           )}
           size={48}
