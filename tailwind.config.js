@@ -8,11 +8,16 @@ export default {
   },
   safelist: [
     {
-      pattern: /w-(2|3|4|5|6|7|8|9)\/12/,
-    },
-    {
       pattern: /bg-(amber|lime|emerald|cyan|blue|indigo|violet|fuchsia)-(400|800)/,
     },
+    'bottom-[32px]',
+    'bottom-[56px]',
+    'bottom-[80px]',
+    'bottom-[104px]',
+    'bottom-[128px]',
+    'bottom-[152px]',
+    'bottom-[176px]',
+    'bottom-[200px]',
   ],
   plugins: [daisyui],
   daisyui: {

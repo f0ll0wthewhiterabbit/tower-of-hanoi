@@ -43,12 +43,16 @@ export const Rod: FC<RodProps> = ({ index, isDisabled }) => {
       ref={setNodeRef}
     >
       {disks.map((disk, index) => (
-        <Disk data={disk} isDisabled={index !== 0} isOver={isOver} key={disk.size}></Disk>
+        <Disk
+          data={disk}
+          index={index}
+          isDisabled={index !== disks.length - 1}
+          isOver={isOver}
+          key={disk.size}
+        ></Disk>
       ))}
       <div
         className={cn(
-          'absolute',
-          'bottom-[40px]',
           'z-10',
           'h-[216px]',
           'w-[16px]',
