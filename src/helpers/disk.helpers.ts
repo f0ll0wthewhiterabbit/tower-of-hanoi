@@ -14,7 +14,7 @@ export const getInitialDisks = (disksNumber: TInitialDisksNumber): IDisk[] => {
     return {
       size,
       rodIndex: 0 as TRodIndex,
-      bgClass: `bg-${color}-300 dark:bg-${color}-800`,
+      bgClass: `bg-${color}-200 dark:bg-${color}-800`,
       bgClassActive: `bg-${color}-500 dark:bg-${color}-400`,
       isDragging: false,
     }
