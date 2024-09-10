@@ -15,6 +15,23 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tower of Hanoi</title>
+    <script>
+      const theme = localStorage.getItem('theme')
+      let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+      if (theme === 'light') {
+        isDarkMode = false
+      } else if (theme === 'dark') {
+        isDarkMode = true
+      }
+
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark')
+        document.documentElement.setAttribute('data-theme', 'night')
+      } else {
+        document.documentElement.setAttribute('data-theme', 'emerald')
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

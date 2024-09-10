@@ -42,7 +42,7 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({
 
   return (
     <dialog ref={dialogRef} className='modal' onKeyDown={handleKeyDown}>
-      <div className='modal-box rounded-lg bg-[#141519]'>
+      <div className='modal-box rounded-lg dark:bg-[#141519]'>
         <h3 className='mb-[24px] text-lg font-bold'>{title}</h3>
         <p className='text-lg'>{text}</p>
         {children}

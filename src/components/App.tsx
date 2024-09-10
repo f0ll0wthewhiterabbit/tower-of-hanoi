@@ -14,7 +14,7 @@ export const App = () => {
     <>
       <Header />
       <main className='w-full max-w-screen-xl justify-self-center p-10'>
-        <div className='grid h-[464px] grid-rows-[80px,1fr,80px] overflow-hidden rounded-xl bg-gray-950 px-8 py-[12px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]'>
+        <div className='grid h-[464px] grid-rows-[80px,1fr,80px] overflow-hidden rounded-xl bg-neutral-50 px-8 py-[12px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] dark:bg-gray-950'>
           <GameHeader />
           {disks.length ? <GameBoard onChange={incrementSteps} /> : <GameStart />}
           <GameFooter />

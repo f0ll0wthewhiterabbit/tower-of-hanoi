@@ -18,34 +18,34 @@ export const DifficultySlider = () => {
 
   function getProFishColor() {
     if (disksNumber === 8) {
-      return 'text-indigo-600'
+      return 'text-fuchsia-400 dark:text-indigo-600'
     }
 
     if (disksNumber === 7) {
-      return 'text-indigo-800'
+      return 'text-fuchsia-300 dark:text-indigo-800'
     }
 
     if (disksNumber === 6) {
-      return 'text-indigo-950'
+      return 'text-fuchsia-200 dark:text-indigo-950'
     }
 
-    return 'text-gray-800'
+    return 'text-gray-200 dark:text-gray-800'
   }
 
   function getNewbieFishColor() {
     if (disksNumber === 3) {
-      return 'text-sky-600'
+      return 'text-cyan-400 dark:text-sky-600'
     }
 
     if (disksNumber === 4) {
-      return 'text-sky-800'
+      return 'text-cyan-300 dark:text-sky-800'
     }
 
     if (disksNumber === 5) {
-      return 'text-sky-950'
+      return 'text-cyan-200 dark:text-sky-950'
     }
 
-    return 'text-gray-800'
+    return 'text-gray-200 dark:text-gray-800'
   }
 
   return (
