@@ -7,7 +7,7 @@ export const GameStart = () => {
   return (
     <div className='flex flex-col items-center justify-center'>
       <DifficultySlider />
-      <button className='btn btn-primary btn-lg mt-12 text-2xl ' onClick={setInitialDisks}>
+      <button className='btn btn-primary btn-lg mt-12 text-2xl' onClick={setInitialDisks}>
         Let&apos;s play!
       </button>
     </div>

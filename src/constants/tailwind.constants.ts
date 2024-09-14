@@ -17,3 +17,11 @@ export const TAILWIND_THEMES = {
 } as const
 
 export const TAILWIND_DARK_THEME_CLASS = 'dark'
+
+export enum TAILWIND_BREAKPOINTS {
+  SM = 640,
+  MD = 768,
+  LG = 1024,
+  XL = 1280,
+  '2XL' = 1536,
+}

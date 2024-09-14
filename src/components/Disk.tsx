@@ -1,6 +1,8 @@
 import { useDraggable } from '@dnd-kit/core'
 import { CSS } from '@dnd-kit/utilities'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
+
+import { TAILWIND_BREAKPOINTS } from '@/constants/tailwind.constants'
 
 import { IDisk } from '@/types/disc.types'
 
@@ -21,6 +23,31 @@ export const Disk: FC<DiskProps> = ({ data, index, isDisabled, isOver }) => {
     data,
     disabled: isDisabled || isGameFinished,
   })
+  const [width, setWidth] = useState<string>('0px')
+
+  useEffect(() => {
+    const updateWidth = () => {
+      const screenWidth = window.innerWidth
+      let multiplier: 2 | 3 | 4 = 4
+      let extraPx: 16 | 24 = 16
+
+      if (screenWidth < TAILWIND_BREAKPOINTS.SM) {
+        multiplier = 2
+        extraPx = 24
+      } else if (screenWidth >= TAILWIND_BREAKPOINTS.SM && screenWidth < TAILWIND_BREAKPOINTS.MD) {
+        multiplier = 3
+      }
+
+      setWidth(`calc(${(8 - data.size) * multiplier}px + 100% / 9 * ${data.size} + ${extraPx}px)`)
+    }
+
+    updateWidth()
+    window.addEventListener('resize', updateWidth)
+
+    return () => {
+      window.removeEventListener('resize', updateWidth)
+    }
+  }, [data.size])
 
   return (
     <div
@@ -28,15 +55,13 @@ export const Disk: FC<DiskProps> = ({ data, index, isDisabled, isOver }) => {
         'absolute',
         'h-[40px]',
         'p-[8px]',
-        `bottom-[${index * 24 + 32}px]`,
+        `bottom-[${index * 24 + 24}px]`,
+        `sm:bottom-[${index * 24 + 32}px]`,
         isDisabled || isGameFinished ? 'cursor-default' : 'cursor-pointer',
         isDisabled || isOver ? 'z-20' : 'z-30',
       )}
       ref={setNodeRef}
-      style={{
-        transform: CSS.Translate.toString(transform),
-        width: `calc(100% / 12 * ${data.size + 1} + 16px)`,
-      }}
+      style={{ transform: CSS.Translate.toString(transform), width }}
       {...listeners}
       {...attributes}
     >

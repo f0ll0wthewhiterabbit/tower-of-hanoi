@@ -24,7 +24,10 @@ export const GameReset = () => {
 
   return (
     <>
-      <button className={cn('btn', 'btn-ghost', 'rounded-md', 'btn-square')} onClick={showModal}>
+      <button
+        className={cn('btn', 'btn-sm', 'md:btn-md', 'btn-ghost', 'rounded-md', 'btn-square')}
+        onClick={showModal}
+      >
         <ArrowLeftToLine size={28} />
       </button>
       <Modal

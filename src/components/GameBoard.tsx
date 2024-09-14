@@ -79,7 +79,7 @@ export const GameBoard: FC<BoardProps> = ({ onChange }) => {
         onDragStart={handleDragStart}
         onDragCancel={handleDragCancel}
       >
-        <div className='grid h-[280px] grid-cols-3'>
+        <div className='grid h-[264px] grid-cols-3 sm:h-[280px]'>
           <Rod index={0} isDisabled={disabledRods.includes(0)} />
           <Rod index={1} isDisabled={disabledRods.includes(1)} />
           <Rod index={2} isDisabled={disabledRods.includes(2)} />

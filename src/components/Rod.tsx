@@ -39,6 +39,11 @@ export const Rod: FC<RodProps> = ({ index, isDisabled }) => {
         'items-center',
         'justify-end',
         'py-[24px]',
+        'mx-[1px]',
+        'sm-[4px]',
+        'md:mx-[8px]',
+        'lg:mx-[16px]',
+        'xl:mx-[24px]',
         isGameFinished && 'animate-pulse',
       )}
       ref={setNodeRef}
@@ -55,14 +60,25 @@ export const Rod: FC<RodProps> = ({ index, isDisabled }) => {
       <div
         className={cn(
           'z-10',
-          'h-[216px]',
-          'w-[16px]',
+          'h-[208px]',
+          'sm:h-[216px]',
+          'w-[8px]',
+          'sm:w-[16px]',
           'rounded-t-2xl',
           'transition-colors',
           bgClass,
         )}
       ></div>
-      <div className={cn('h-[16px]', 'w-10/12', 'rounded-2xl', 'transition-colors', bgClass)}></div>
+      <div
+        className={cn(
+          'h-[8px]',
+          'sm:h-[16px]',
+          'w-full',
+          'rounded-2xl',
+          'transition-colors',
+          bgClass,
+        )}
+      ></div>
     </div>
   )
 }

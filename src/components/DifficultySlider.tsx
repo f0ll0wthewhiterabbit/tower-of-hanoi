@@ -49,11 +49,13 @@ export const DifficultySlider = () => {
   }
 
   return (
-    <div className='w-96 text-center'>
+    <div className='w-80 text-center sm:w-96'>
       <h2 className='mb-6 text-2xl'>Select disk count</h2>
       <div className='relative'>
         <FishSymbol
           className={cn(
+            'hidden',
+            'sm:block',
             'absolute',
             '-left-4',
             'top-1/2',
@@ -76,6 +78,8 @@ export const DifficultySlider = () => {
         />
         <Fish
           className={cn(
+            'hidden',
+            'sm:block',
             'absolute',
             '-right-4',
             'top-1/2',

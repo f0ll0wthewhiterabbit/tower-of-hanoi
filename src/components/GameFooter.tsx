@@ -7,10 +7,11 @@ export const GameFooter = () => {
   const minimumNumberOfSteps = useStore(state => getMinimumNumberOfSteps(state.disksNumber))
 
   return (
-    <footer className='flex items-center justify-end'>
+    <footer className='flex items-center justify-center sm:justify-end'>
       {Boolean(disks.length) && (
         <span className='text-xl font-semibold'>
-          Moves: {steps} / {minimumNumberOfSteps}
+          <span className='hidden sm:inline'>Moves: </span>
+          {steps} / {minimumNumberOfSteps}
         </span>
       )}
     </footer>

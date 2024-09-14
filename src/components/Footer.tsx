@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
-    <footer className='footer footer-center bg-neutral p-10 text-neutral-content'>
-      <aside>
+    <footer className='footer footer-center bg-neutral-50 p-[16px] text-inherit sm:bg-neutral sm:p-7 sm:text-neutral-content md:p-10 dark:bg-gray-950 sm:dark:bg-neutral'>
+      <aside className='hidden sm:block'>
         <p className='font-bold'>Designed and developed by Vadzim Sliaptsou.</p>
         <p>© {new Date().getFullYear()}. All rights reserved.</p>
       </aside>

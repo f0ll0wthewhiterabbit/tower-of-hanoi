@@ -13,8 +13,8 @@ export const App = () => {
   return (
     <>
       <Header />
-      <main className='w-full max-w-screen-xl justify-self-center p-10'>
-        <div className='grid h-[464px] grid-rows-[80px,1fr,80px] overflow-hidden rounded-xl bg-neutral-50 px-8 py-[12px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] dark:bg-gray-950'>
+      <main className='size-full max-w-screen-xl justify-self-center md:h-auto md:p-6 lg:p-10'>
+        <div className='grid h-full grid-rows-[max-content,1fr,max-content] items-center overflow-hidden bg-neutral-50 p-[8px] sm:p-[12px] md:h-[464px] md:grid-rows-[80px,1fr,80px] md:rounded-xl md:p-[24px] md:py-[12px] md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] lg:px-[40px] dark:bg-gray-950'>
           <GameHeader />
           {disks.length ? <GameBoard onChange={incrementSteps} /> : <GameStart />}
           <GameFooter />
