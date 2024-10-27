@@ -5,6 +5,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/tower-of-hanoi/',
   plugins: [react(), tsconfigPaths()],
   resolve: { alias: { '@': path.resolve(__dirname, './src') } },
 })
