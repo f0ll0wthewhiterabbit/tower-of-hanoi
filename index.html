@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/tower-of-hanoi/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=block"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tower of Hanoi</title>
+    <script>
+      const theme = localStorage.getItem('theme')
+      let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+      if (theme === 'light') {
+        isDarkMode = false
+      } else if (theme === 'dark') {
+        isDarkMode = true
+      }
+
+      if (isDarkMode) {
+        document.documentElement.classList.add('dark')
+        document.documentElement.setAttribute('data-theme', 'night')
+      } else {
+        document.documentElement.setAttribute('data-theme', 'emerald')
+      }
+    </script>
+    <script type="module" crossorigin src="/tower-of-hanoi/assets/index-JFgycr32.js"></script>
+    <link rel="stylesheet" crossorigin href="/tower-of-hanoi/assets/index-DJS1aELs.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
