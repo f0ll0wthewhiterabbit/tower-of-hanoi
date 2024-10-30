@@ -11,7 +11,10 @@ interface ThemeSwitcherProps {
 }
 
 const getInitialIsDarkMode = (): boolean => {
-  return document.documentElement.classList.contains(TAILWIND_DARK_THEME_CLASS)
+  return (
+    localStorage.getItem(LOCAL_STORAGE_KEYS.THEME) === THEMES.DARK ||
+    document.documentElement.classList.contains(TAILWIND_DARK_THEME_CLASS)
+  )
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ isSmallScreenOnly }) => {

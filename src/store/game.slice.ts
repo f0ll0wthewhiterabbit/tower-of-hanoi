@@ -48,7 +48,11 @@ export const createGameSlice: StateCreator<TGameSlice, [], [['zustand/persist', 
         set({
           disks: get().disks.map(disk => (disk.size === diskSize ? { ...disk, rodIndex } : disk)),
         }),
-      resetGame: () => set(initialState),
+      resetGame: () =>
+        set({
+          ...initialState,
+          disksNumber: get().disksNumber,
+        }),
     }),
     {
       name: LOCAL_STORAGE_KEYS.GAME_STORAGE,

@@ -26,10 +26,13 @@ export const GameBoard: FC<BoardProps> = ({ onChange }) => {
   useEffect(() => {
     if (isGameFinished) {
       localStorage.removeItem(LOCAL_STORAGE_KEYS.GAME_STORAGE)
-
-      setTimeout(() => {
+      const timerId = setTimeout(() => {
         setIsFinishGameModalOpened(true)
       }, 2750)
+
+      return () => {
+        clearTimeout(timerId)
+      }
     }
   }, [isGameFinished])
 

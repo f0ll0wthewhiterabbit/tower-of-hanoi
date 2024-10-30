@@ -27,16 +27,24 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({
   const dialogRef = useRef<HTMLDialogElement | null>(null)
 
   useEffect(() => {
+    const dialog = dialogRef.current
+
     if (isOpened) {
-      dialogRef.current?.showModal()
+      dialog?.showModal()
     } else {
-      dialogRef.current?.close()
+      dialog?.close()
+    }
+
+    return () => {
+      dialog?.close()
     }
   }, [isOpened])
 
   function handleKeyDown(event: KeyboardEvent<HTMLDialogElement>) {
     if (isCloseDisabled) {
       event.preventDefault()
+    } else if (event.key === 'Escape' && onCancel) {
+      onCancel()
     }
   }
 
